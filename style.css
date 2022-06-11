@@ -3,6 +3,7 @@ body {
   color: #fff;
   margin: 100px auto;
 }
+
 .container {
   max-width: 500px;
   margin: 100px auto;
@@ -50,4 +51,9 @@ li {
   flex-direction: row;
   justify-content: space-around;
   font-size: 32px;
+}
+footer {
+  display: "flex";
+  justify-content: center;
+  padding: 5px;
 }
