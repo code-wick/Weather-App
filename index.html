@@ -24,13 +24,14 @@
   </head>
   <body>
     <div class="container">
-      <form class="search-form" id="search-form">
-        <input type="search" placeholder="enter city" id="cityInput" />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form  id="find-city">
+        <input type="search"
+         placeholder="search"
+         autocomplete="off"
+         autofocus="on" 
+         id="search-location" />
+        <input type="submit" value="Search">Search</input>
       </form>
-      <button class="current" id="current-location-button">
-        Current location
-      </button>
       <h1 id="city">Paris</h1>
       <p></p>
 
