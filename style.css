@@ -36,6 +36,9 @@ p {
 h2 {
   text-align: center;
 }
+li {
+  list-style: none;
+}
 .row {
   width: 100% auto;
   display: flex;
