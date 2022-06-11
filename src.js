@@ -54,7 +54,7 @@ function showWeatherCondition(response) {
 function search(city) {
   let units = "metric";
   let apiKey = "1250ee57d7591013d024f90dcae7bef4";
-  let apiEndpoint = "https://api.openweather.org/data/2.5/weather";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
 
   let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
   console.log(apiUrl);
