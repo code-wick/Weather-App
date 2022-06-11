@@ -47,7 +47,9 @@ function showTemperature(response) {
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${temperature}°F `;
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function searchEngine(event) {
