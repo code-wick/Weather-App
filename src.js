@@ -53,11 +53,22 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
+function searchEngine(event) {
+  event.preventDefault();
+  let apiKey = "1250ee57d7591013d024f90dcae7bef4";
+  let city = document.querySelector("#search-location").value;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+let searchInput = document.querySelector("#find-city");
+searchInput.addEventListener("submit", searchEngine);
+
 function displayForecast(response) {
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thursday", "Friday", "Saturday"];
+
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 3) {
@@ -66,15 +77,20 @@ function displayForecast(response) {
         `
      
       <div class="col">
-      <div calss= "weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-      <i class="fa-regular fa-sun">${forecastDay.weather[0].icon}</i>
+      <div class= "weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+      <img
+      scr="http://openweathermap.org/img/wn${
+        forecastDay.weather[0].icon
+      }@2x.png"
+      alt=""
+      width="36"/>
       <br>
       <span class="weather-forecast-min">${Math.round(
         forecastDay.temp.min
-      )}</span> | 
+      )}°</span> | 
       <span class="weather-forecast-max">${Math.round(
         forecastDay.temp.max
-      )}</span>
+      )}°</span>
       
       </div>;`;
     }
@@ -101,22 +117,12 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
+  iconiconElement.innerHTML = "http://openweathermap.org/img/wn/01d@2x.png";
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].descripstion);
+  iconElement.setAttribute("alt", response.data.weather[0].icon);
 
   getForecast(response.data.coord);
 }
-
-function searchEngine(event) {
-  event.preventDefault();
-  let apiKey = "1250ee57d7591013d024f90dcae7bef4";
-  let city = document.querySelector("#search-location").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
-let searchInput = document.querySelector("#find-city");
-searchInput.addEventListener("submit", searchEngine);
