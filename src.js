@@ -52,6 +52,35 @@ function showTemperature(response) {
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
 }
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thursday", "Friday", "Saturday"];
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
+     
+      <div class="col">
+      <div calss= "weather-forecast-date">${forecastDay(forecastDay.dt)}</div>
+      <i class="fa-regular fa-sun">${forecastDay.weather[0].icon}</i>
+      <br>
+      <span class="weather-forecast-min">${Math.round(
+        forecastDay.temp.min
+      )}</span> | 
+      <span class="weather-forecast-max">${Math.round(
+        forecastDay.temp.max
+      )}</span>
+      
+      </div>;`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function searchEngine(event) {
   event.preventDefault();
