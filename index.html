@@ -39,7 +39,7 @@
 
       <h3 id="date"></h3>
 
-      <i class="fa-solid fa-cloud-bolt"></i>
+      <i class="fa-regular fa-sun" id="icon"></i>
       <h2>72°</h2>
       <div class="row">
       <div class="col-6" >
@@ -54,25 +54,35 @@
       </div>
       </div>
       <hr />
-      <div class="d-flex justify-content-center">
-        <i class="fa-solid fa-cloud-sun"></i>
-        <div class="col-4">8am</div>
-        <br />
-        <i class="fa-solid fa-cloud-showers-heavy"></i>
-
-        <div class="col-6">12pm</div>
-        <i class="fa-solid fa-cloud-moon"></i>
-        <div class="col-4">8pm</div>
+     <div class="weather-forecast" id="forecast">
+        <div class="row">
+          <div class="col">
+            <div class="weather-forecast-date">Thursday</div>
+            <i class="fa-regular fa-sun" ></i>
+            <br>
+            <span class="weather-forecast-min">75°</span>
+             | 
+            <span class="weather-forecats-max">108°</span>
+          </div>
+          <div class="col">
+            <div class="weather-forecast-date">Friday</div>
+            <i class="fa-regular fa-sun"></i>
+            <br>
+            <span class="weather-forcast-min">74°</span>
+             | 
+            <span class="weather-forecast-max">100°</span>
+          </div>
+          <div class="col">
+            <div class="weather-forecast-date">Saturday</div>
+            <i class="fa-regular fa-sun"></i>
+            <br>
+            <span class="weather-forecast-min">68°</span>
+             | 
+            <span class="weather-forecast-max">89°</span>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-      <small>
-        <a href="https://github.com/code-wick/Weather-App" target="_blank"
-          >Open-source code</a
-        >
-        by Celeste Izaguirre
-      </small>
-  </div>
+    </div>
     <script src="src.js"></script>
   </body>
 </html>

@@ -42,7 +42,7 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-size: 32px;
+  font-size: 80px;
 }
 .weather-app-wrapper {
   max-width: 500px;
