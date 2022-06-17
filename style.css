@@ -32,7 +32,10 @@ h2 {
 li {
   list-style: none;
 }
-.row {
+.weather-forecast-date {
+  text-align: center;
+}
+.weather-forecast {
   width: 100% auto;
   display: flex;
   flex-direction: row;
