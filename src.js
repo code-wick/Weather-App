@@ -39,19 +39,6 @@ let months = [
 let month = months[now.getMonth()];
 date.innerHTML = `Today is ${currentDay}, ${month}, ${hours}:${minutes},${year}`;
 
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city}`;
-  let h2 = document.querySelector("h2");
-  h2.innerHTML = `${temperature}°F `;
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
-  let iconElement = document.querySelector("#icon");
-  humidity.innerHTML = response.data.main.humidity;
-  wind.innerHTML = Math.round(response.data.wind.speed);
-}
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -80,6 +67,33 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "1250ee57d7591013d024f90dcae7bef4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let city = response.data.name;
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = `${city}`;
+  let h2 = document.querySelector("h2");
+  h2.innerHTML = `${temperature}°F `;
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", repsonse.data.weather[0].descripstion);
+
+  getForecast(response.data.coord);
 }
 
 function searchEngine(event) {
