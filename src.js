@@ -105,7 +105,7 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", repsonse.data.weather[0].descripstion);
+  iconElement.setAttribute("alt", response.data.weather[0].descripstion);
 
   getForecast(response.data.coord);
 }
