@@ -101,8 +101,8 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "1250ee57d7591013d024f90dcae7bef4";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -117,7 +117,7 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
-  iconiconElement.innerHTML = "http://openweathermap.org/img/wn/01d@2x.png";
+  iconElement.innerHTML = "http://openweathermap.org/img/wn/01d@2x.png";
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

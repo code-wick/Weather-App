@@ -15,17 +15,21 @@ p {
   font-family: "Ubuntu", sans-serif;
   font-size: 32px;
 }
-.fa-regular {
-  position: relative;
-  margin-left: 38%;
+.float-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 80px;
   text-align: center;
-  font-size: 32px;
+}
+img {
+  position: relative;
+  margin-left: 10%;
+  text-align: center;
+  font-size: 50px;
   transition: all 150ms ease-in-out;
 }
-.fa-cloud-bolt :hover {
-  color: red;
-  font-size: 200px;
-}
+
 h2 {
   text-align: center;
 }
@@ -41,12 +45,7 @@ li {
   flex-direction: row;
   justify-content: space-evenly;
 }
-#icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  font-size: 80px;
-}
+
 .weather-app-wrapper {
   max-width: 500px;
   margin: 60px auto;
