@@ -39,6 +39,20 @@ let months = [
 let month = months[now.getMonth()];
 date.innerHTML = `Today is ${currentDay}, ${month}, ${hours}:${minutes},${year}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -52,7 +66,7 @@ function displayForecast(response) {
         `
      
       <div class="col">
-      <div calss= "weather-forecast-date">${forecastDay(forecastDay.dt)}</div>
+      <div calss= "weather-forecast-date">${formatDay(forecastDay.dt)}</div>
       <i class="fa-regular fa-sun">${forecastDay.weather[0].icon}</i>
       <br>
       <span class="weather-forecast-min">${Math.round(
